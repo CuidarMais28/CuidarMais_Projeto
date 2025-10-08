@@ -1,0 +1,131 @@
+* {
+    font-family: 'Grandstrander', cursive;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.logo {
+    width: 70%;
+    cursor: pointer;
+}
+
+.cabecalho ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 70px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+.cabecalho a {
+    text-decoration: none;
+    color: rgba(191, 192, 196, 1);
+    font-size: 20px;
+    transition: all 0.3s ease-in;
+}
+
+
+.cabecalho a:hover {
+    color: rgba(248, 179, 206, 1);
+}
+
+
+.cabecalho .material-symbols-outlined {
+    background-color: rgba(248, 179, 206, 1);
+    color: white;
+    font-size: 34px;
+    border-radius: 50%;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.cabecalho .material-symbols-outlined:hover {
+    background-color: rgba(145, 155, 222, 1);
+    cursor: pointer;
+}
+
+.section_incio {
+    margin-top: 70px;
+    display: flex;
+    /* background-color: rgb(224, 222, 222); */
+    height: 800px;
+    gap: 10%;
+}
+
+.section_primeira_parte {
+    padding: 20px;
+    margin-left: 10%;
+}
+
+.section_primeira_parte h1 {
+    font-size: 120px;
+    color: rgba(110, 110, 110, 1);
+
+}
+
+.section_primeira_parte p {
+    font-weight: bolder;
+    color: rgb(119, 118, 118);
+    margin-top: -10%;
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+.botoes_container {
+    display: flex;
+    gap: 20px;
+}
+
+.section_primeira_parte button {
+    border: none;
+    padding: 20px;
+    font-size: 15px;
+    font-weight: bolder;
+    border-radius: 50px;
+    background-color: rgba(248, 179, 206, 1);
+    color: white;
+    transition: all 0.3s ease;
+  
+
+}
+
+.section_primeira_parte button:hover {
+    background-color: rgba(145, 155, 222, 1);
+    cursor: pointer;
+}
+
+
+.section_segunda_parte img {
+    background-color: rgba(235, 233, 233, 1);
+    padding: 290px;
+    border-radius: 10px;
+
+}
+
+.section_segunda_parte h1 {
+    font-size: 30px;
+    padding: 10px;
+    background-color: rgba(248, 179, 206, 1);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+
+}
+
+.section_segunda_parte .material-symbols-outlined:hover {
+    background-color: rgba(145, 155, 222, 1);
+    cursor: pointer;
+    
+}

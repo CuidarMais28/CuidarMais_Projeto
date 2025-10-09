@@ -14,6 +14,12 @@ header {
 
 }
 
+
+ html {
+    scroll-behavior: smooth;
+  }
+
+
 .logo {
     width: 70%;
     cursor: pointer;
@@ -202,11 +208,14 @@ header {
 .terceira_section img {
     width: 100%;
     height: auto;
+
 }
 
 .teste {
     flex: 1;
+
 }
+
 
 .coluna_modal {
    flex: 2;

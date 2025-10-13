@@ -85,7 +85,7 @@ header {
 
 .section_primeira_parte p {
     font-weight: bolder;
-    color: rgb(119, 118, 118);
+    color: rgb(161, 160, 160);
     margin-top: -10%;
     width: 70%;
     margin-bottom: 5%;
@@ -155,12 +155,12 @@ header {
 
 .coluna-texto h1 {
     font-size: 60px;
-    color: rgba(145, 155, 222, 1);
+    color: rgba(248, 179, 206, 1);
     margin-top: 10%;
 }
 
 .coluna-texto h2 {
-    color: rgba(145, 155, 222, 1);
+    color: rgba(248, 179, 206, 1);
 
 }
 
@@ -262,4 +262,212 @@ header {
     color: #777;
     font-weight: 700;
     margin-top: 25px;
+}
+
+
+.section_contato {
+    display: flex;
+}
+
+.coluna_contato {
+    padding: 100px;
+    text-align: center;
+}
+
+.coluna_texto_contrato h1 {
+    font-size: 60px;
+    color: rgba(110, 110, 110, 1);
+
+}
+
+.coluna_texto_contrato p {
+    font-size: 15px;
+    font-weight: bolder;
+    color: rgb(161, 160, 160);
+    max-width: 800px;
+
+
+}
+
+.formas_contato {
+    display: flex;
+    gap: 90px;
+    text-align: center;
+    margin-top: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.formas_contato span {
+    background-color: rgba(248, 179, 206, 1);
+    color: white;
+    padding: 20px;
+    border-radius: 50%;
+    font-size: 30px;
+}
+
+.formas_contato h1 {
+    color: rgba(110, 110, 110, 1);
+    font-size: 20px;
+}
+
+.formas_contato p {
+    color: rgb(185, 183, 183);
+}
+
+.coluna_formulario_contato {
+    text-align: center;
+}
+
+
+.coluna_formulario_contato h1 {
+    color: rgba(110, 110, 110, 1);
+    font-size: 20px;
+}
+
+
+
+
+.coluna_formulario_contato input {
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid rgba(248, 179, 206, 1);
+    width: 45.5%;
+
+}
+
+.coluna_formulario_contato textarea {
+    margin-top: 2%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid rgba(248, 179, 206, 1);
+}
+
+.coluna_formulario_contato button {
+    border: none;
+    padding: 20px;
+    font-size: 15px;
+    font-weight: bolder;
+    border-radius: 50px;
+    background-color: rgba(248, 179, 206, 1);
+    color: white;
+    width: 20%;
+    margin-top: 2%;
+    transition: all 0.3s ease;
+
+
+
+}
+
+.coluna_formulario_contato button:hover {
+    background-color: rgba(145, 155, 222, 1);
+    cursor: pointer;
+}
+
+
+
+.iframe_local {
+    margin-top: 14%;
+
+}
+
+
+
+
+footer {
+    background-color: rgba(248, 179, 206, 1); 
+    padding: 60px 40px 20px 40px;
+    color: #555;
+    border-top: 1px solid #e9e0e4;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    gap: 40px;
+}
+
+.footer-coluna {
+    flex: 1;
+    min-width: 250px; 
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-coluna h4 {
+    font-size: 18px;
+    color:  rgba(145, 155, 222, 1); 
+    margin-bottom: 25px;
+    position: relative;
+}
+
+
+.footer-coluna h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: rgba(248, 179, 206, 1); 
+    height: 2px;
+    width: 50px;
+}
+
+.footer-coluna p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: white;
+}
+
+.footer-coluna ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-coluna ul li {
+    margin-bottom: 12px;
+}
+
+.footer-coluna ul a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.footer-coluna ul a:hover {
+    color: rgba(145, 155, 222, 1);
+}
+
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-right: 10px;
+    border-radius: 50%;
+    color: rgba(145, 155, 222, 1);
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid #e9e0e4;
+}
+
+.social-links a:hover {
+    background-color: rgba(145, 155, 222, 1);
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #e9e0e4;
+    font-size: 14px;
+    color: white;
 }

@@ -11,6 +11,7 @@ header {
     box-sizing: border-box;
     position: fixed;
     background-color: rgba(255, 255, 255, 0.596);
+    margin-top: -20px;
 
 }
 
@@ -263,6 +264,31 @@ header {
     font-weight: 700;
     margin-top: 25px;
 }
+
+.doaroes_imagem img {
+ height: 800px;
+ padding: 30px;
+}
+
+.section_doadores {
+    display: flex;
+    background-color: rgb(252, 244, 244);
+    height: 1200px;
+}
+
+.section_doadores h1 {
+    font-size: 60px;
+    color: rgba(248, 179, 206, 1);
+    margin-top: 10%;
+}
+
+.section_doadores h2 {
+    color: rgba(248, 179, 206, 1);
+    font-size: 15px;
+    max-width: 80%;
+
+}
+
 
 
 .section_contato {

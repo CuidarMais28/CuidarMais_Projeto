@@ -1,0 +1,666 @@
+/* ==========================================================================
+   1. RESET E GLOBAIS
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(17, 17, 17);
+  padding-top: 90px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+/* ==========================================================================
+   2. HEADER E NAVEGAÇÃO
+   ========================================================================== */
+header {
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.img_logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Menu Desktop */
+.cabecalho ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.cabecalho a {
+  text-decoration: none;
+  color: #1946da;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.cabecalho a:hover {
+  color: #d689b1;
+}
+
+/* Menu Mobile (Hamburguer) */
+.menu-toggle {
+  display: none;
+}
+
+.menu-hamburguer {
+  display: none; /* Flex no mobile */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 3100;
+}
+
+.menu-hamburguer span {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(248, 179, 206, 1);
+  border-radius: 2px;
+  transition: 0.25s ease;
+}
+
+/* Animação do X */
+.menu-toggle:checked + .menu-hamburguer span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle:checked + .menu-hamburguer span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle:checked + .menu-hamburguer span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Gaveta do Menu (Configuração Base) */
+.cabecalho {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 260px;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 120px 20px 30px;
+  transition: right 0.3s ease;
+  z-index: 3050;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+  overflow-y: auto; 
+}
+
+/* Abre a gaveta */
+.menu-toggle:checked ~ .cabecalho {
+  right: 0;
+}
+
+/* Dark Mode Toggle */
+.dark-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.dark-toggle {
+  display: none;
+}
+
+.dark-icon {
+  cursor: pointer;
+  font-size: 30px;
+  background-color: rgba(248, 179, 206, 1);
+  color: white;
+  padding: 7px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-icon::before {
+  content: "dark_mode";
+  font-family: 'Material Symbols Outlined';
+}
+
+.dark-toggle:checked + .dark-icon::before {
+  content: "bedtime_off";
+}
+
+.dark-icon:hover {
+  background-color: rgba(145, 155, 222, 1);
+}
+
+/* ==========================================================================
+   3. SEÇÃO INÍCIO E BOTÕES
+   ========================================================================== */
+.section_incio {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  text-align: center;
+}
+
+.section_primeira_parte h1 {
+  font-size: 64px;
+  line-height: 1;
+  color: rgb(25, 70, 218);
+}
+
+.section_primeira_parte p {
+  color: rgb(13, 13, 14);
+  max-width: 520px;
+  margin: 12px auto 24px;
+  font-weight: bold;
+}
+
+.botoes_container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* --- ALTERAÇÃO AQUI: Novos estilos de botão mais bonitos --- */
+.botoes_container button {
+  border: none;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  
+  /* Gradiente Rosa Harmonioso */
+  background: linear-gradient(135deg, rgba(248, 179, 206, 1) 0%, rgba(236, 142, 180, 1) 100%);
+  color: white;
+  cursor: pointer;
+  
+  /* Sombra para profundidade */
+  box-shadow: 0 4px 15px rgba(248, 179, 206, 0.4);
+  transition: all 0.3s ease;
+}
+
+.botoes_container button:hover {
+  /* Gradiente Azul ao passar o mouse */
+  background: linear-gradient(135deg, #1946da 0%, #4c6ef5 100%);
+  transform: translateY(-3px); /* Efeito de elevação */
+  box-shadow: 0 8px 20px rgba(25, 70, 218, 0.3);
+}
+/* ----------------------------------------------------------- */
+
+/* --- ALTERAÇÃO AQUI: Fundo Harmonioso (Rosa Claro) --- */
+.section_segunda_parte {
+  background-color: #fff0f5; /* Lavanda rosado bem suave */
+  padding: 30px;
+  border-radius: 30px; /* Bordas mais arredondadas */
+  max-width: 520px;
+  width: 100%;
+  
+  /* Sombra suave para destacar o bloco */
+  box-shadow: 0 15px 35px rgba(248, 179, 206, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  display: flex;          
+  flex-wrap: nowrap;      
+  gap: 15px;              
+  justify-content: center; 
+  align-items: center;    
+}
+
+.section_segunda_parte img {
+   max-width: 250px;       
+   width: 100%;           
+   height: auto; 
+}
+/* ----------------------------------------------------- */
+
+.setas_container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.slide.active {
+  display: block;
+  animation: fadeEffect 0.8s ease-in-out;
+}
+
+@keyframes fadeEffect {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+/* ==========================================================================
+   4. SEÇÃO SOBRE NÓS
+   ========================================================================== */
+.sobre-nos-section {
+  background-color: #fdf5f8 !important;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 24px;
+}
+
+.coluna-texto {
+  max-width: 1000px;
+  width: 100%;
+  text-align: left;
+}
+
+.coluna-texto h1 {
+  color: #1946da !important;
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.coluna-texto h2 {
+  color: #d689b1 !important;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.coluna-texto p {
+  color: #525050;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* --- FLIP CARDS (ESTILOS GERAIS) --- */
+.flip-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  display: flex;
+  /* flex-direction é definido nas Media Queries abaixo */
+  gap: 24px;
+}
+
+.flip-card {
+  /* Largura e flex são definidos nas Media Queries */
+  min-width: 280px;
+  height: 420px; /* Altura fixa obrigatória */
+  perspective: 1200px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+  border-radius: 24px;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background: #fff !important;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.flip-media {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.flip-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.flip-title {
+  margin-top: 14px;
+  padding: 12px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1946da;
+  background: #f8f0f2;
+  border-radius: 16px;
+  margin: 15px;
+}
+
+.flip-card-back {
+  background: rgba(248, 179, 206, 1);
+  color: #fff;
+  transform: rotateY(180deg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flip-card-back h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.flip-card-back p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Classe .virado adicionada via JS */
+.flip-card.virado .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+body.dark-mode { background-color: #1a1a1a; color: #ffffff; }
+body.dark-mode header { background-color: rgba(30, 30, 30, 0.95); box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); }
+
+/* Links padrão do Desktop (serão sobrescritos no mobile abaixo) */
+body.dark-mode .cabecalho a { color: #ffffff; }
+body.dark-mode .cabecalho a:hover { color: #f5c542; }
+
+body.dark-mode .sobre-nos-section, body.dark-mode .section_doadores, body.dark-mode .estilo_modal, body.dark-mode footer, body.dark-mode .section_segunda_parte, body.dark-mode .container_contato { background-color: #2a2a2a !important; color: #ffffff; border-radius: 30px; }
+body.dark-mode .coluna-texto h1, body.dark-mode .coluna-texto h2, body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 { color: #f5c542 !important; }
+body.dark-mode .coluna-texto p, body.dark-mode p, body.dark-mode span, body.dark-mode li { color: #ffffff !important; }
+body.dark-mode .flip-card-front { background: #2a2a2a !important; }
+body.dark-mode .flip-title { background: #1f1f1f; color: #f5c542; }
+body.dark-mode .flip-card-back { background: #3a3a3a; }
+body.dark-mode input, body.dark-mode textarea { background-color: #333; color: #ffffff; border-color: #666; }
+body.dark-mode input:focus, body.dark-mode textarea:focus { border-color: #f5c542; box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.3); }
+body.dark-mode .estilo_modal { background: #2a2a2a; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+body.dark-mode .estilo_modal p { color: #ccc; }
+
+/* ==========================================================================
+   OUTRAS SEÇÕES
+   ========================================================================== */
+.titulo-sessao { text-align: center; color: #8a8aff; font-size: 2.8rem; margin-bottom: 30px; font-weight: 700; }
+.terceira_section { padding: 80px 0; overflow: hidden; }
+.meuSwiper { width: 100%; padding-top: 50px; padding-bottom: 80px; }
+.swiper-slide { background-position: center; background-size: cover; width: 320px !important; height: 450px !important; display: flex; align-items: center; justify-content: center; }
+.estilo_modal { background: white; border-radius: 30px; padding: 30px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.15); width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.estilo_modal h1 { color: #d689b1; font-size: 1.4rem; margin-bottom: 10px; }
+.estilo_modal p { color: #000000; font-size: 0.95rem; line-height: 1.6; font-style: italic; }
+.estilo_modal h4 { color: #d689b1; font-size: 0.8rem; margin-top: 15px; }
+
+.section_doadores { background-color: rgb(252, 244, 244); display: flex; flex-direction: column; gap: 32px;border-radius: 30px; }
+.section_doadores h1 { color: rgb(25, 70, 218); font-size: 48px; }
+
+.container_contato { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.formas_contato_horizontal { display: flex; justify-content: space-around; flex-wrap: wrap; margin: 30px 0; gap: 20px; }
+.item_contato { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.item_contato i { color: #004587; font-size: 1.2rem; }
+.mapa_container { margin-bottom: 40px; }
+.iframe_local { border-radius: 8px; width: 100%; }
+.coluna_formulario_contato { margin-top: 40px; text-align: center; }
+.coluna_formulario_contato h1 { color: #333; margin-bottom: 25px; font-size: 26px; font-weight: 700; }
+.coluna_formulario_contato form { display: flex; flex-direction: column; gap: 15px; }
+.input_group { display: flex; gap: 20px; margin-bottom: 15px; }
+.input_group input, textarea { width: 100%; padding: 14px 16px; border: 2px solid #f3b3cc; border-radius: 10px; background-color: #fff; font-size: 15px; color: #333; outline: none; transition: 0.3s; }
+.input_group input::placeholder, textarea::placeholder { color: #999; }
+.input_group input:focus, textarea:focus { border-color: #f3a0c0; box-shadow: 0 0 0 3px rgba(243, 179, 204, 0.35); }
+textarea { height: 140px; resize: none; margin-bottom: 20px; }
+.coluna_formulario_contato button { width: 100%; max-width: 420px; padding: 14px; background: #f3b3cc; color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; align-self: center; }
+.coluna_formulario_contato button:hover { background: #ee9dbd; }
+
+footer { background-color: #e1e1e1; padding: 35px 6% 20px; font-family: Arial, sans-serif; border-top-left-radius: 24px; border-top-right-radius: 24px; }
+.footer-container { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
+.footer-logo { display: flex; align-items: center; gap: 16px; }
+.footer-logo img { width: 130px; }
+.footer-logo span { font-size: 26px; font-weight: bold; color: #1e3a8a; }
+.footer-menu ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
+.footer-menu a { text-decoration: none; font-size: 17px; font-weight: 600; color: #1e3a8a; transition: color 0.3s; }
+.footer-menu a:hover { color: #f3b3cc; }
+.footer-social { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.footer-social span { font-size: 17px; font-weight: 600; color: #1e3a8a; }
+.social-icons { display: flex; flex-direction: column; gap: 10px; }
+.social-icons a { width: 34px; height: 34px; background-color: #1e3a8a; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: 0.3s; }
+.social-icons a:hover { background-color: #f3b3cc; transform: scale(1.05); }
+.footer-copy { margin-top: 25px; padding-top: 15px; text-align: center; font-size: 14px; color: #1e3a8a; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+
+/* ==========================================================================
+   10. MEDIA QUERIES (RESPONSIVIDADE ESTRITA)
+   ========================================================================== */
+
+/* --- MOBILE (Até 900px) --- */
+@media (max-width: 900px) {
+  /* 1. Menu Mobile Vertical */
+  .menu-hamburguer {
+    display: flex;
+  }
+  .cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 130px;
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+  }
+  .cabecalho ul {
+    flex-direction: column; /* Vertical */
+    align-items: center;
+    gap: 30px;
+  }
+  .cabecalho a {
+    font-size: 20px;
+    display: block;
+    padding: 10px;
+  }
+
+  /* 2. Flip Cards em Coluna */
+  .flip-grid {
+    flex-direction: column; /* Um embaixo do outro */
+    align-items: center;
+  }
+  .flip-card {
+    width: 100%; /* Largura total da coluna */
+    max-width: 360px;
+    margin-bottom: 25px; /* Espaço entre cards */
+  }
+
+/* 3. Ajustes Gerais */
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  /* --- COLE AQUI O CÓDIGO DO MENU RODAPÉ --- */
+  .footer-menu ul {
+    display: flex;
+    flex-direction: column; /* Coloca um embaixo do outro */
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  /* ---------------------------------------- */
+
+  .section_incio {
+    margin-top: 20px;
+  }
+
+  /* 4. CORREÇÃO ESPECÍFICA: MENU DARK MODE NO CELULAR */
+  body.dark-mode .cabecalho {
+    background-color: #2a2a2a; 
+  }
+  body.dark-mode .cabecalho a {
+    color: #f5c542; 
+  }
+}
+
+@media (max-width: 900px) {
+  
+  /* 1. Força os links a ficarem um embaixo do outro (vertical) */
+  .footer-menu ul {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* 2. Garante que os links fiquem Amarelos no Dark Mode */
+  body.dark-mode .footer-menu a {
+    color: #f5c542 !important; /* O !important garante que não fique azul */
+    font-size: 16px;
+  }
+
+  /* 3. Ajusta também o texto de copyright e "Siga-nos" para amarelo */
+  body.dark-mode .footer-copy,
+  body.dark-mode .footer-social span {
+    color: #f5c542 !important;
+  }
+  
+  /* 4. Ajusta os ícones sociais no Dark Mode */
+  body.dark-mode .social-icons a {
+    background-color: #f5c542 !important;
+    color: #1a1a1a !important;
+  }
+}
+
+/* --- DESKTOP (Acima de 901px) --- */
+@media (min-width: 901px) {
+  /* 1. Menu Desktop Horizontal */
+  .menu-hamburguer { display: none; }
+  .cabecalho {
+    position: static;
+    height: auto;
+    width: auto;
+    padding: 0;
+    right: auto;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+    overflow: visible;
+  }
+  .cabecalho ul {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* 2. Flip Cards em Linha (RESTAURAÇÃO DO DESKTOP) */
+  .flip-grid {
+    flex-direction: row; /* Lado a lado */
+    justify-content: space-between;
+  }
+  .flip-card {
+    flex: 1; /* Estica para preencher */
+    margin-bottom: 0;
+  }
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* 3. Seções Principais em Linha */
+  .section_incio,
+  .section_doadores,
+  .terceira_section,
+  .section_contato {
+    flex-direction: row; /* Lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between;
+  }
+  
+  .botoes_container {
+    justify-content: flex-start;
+  }
+  
+  .coluna_modal {
+    flex-direction: row;
+  }
+
+  /* Padding maior para Desktop */
+  section {
+    padding: 80px 100px;
+  }
+  .section_incio, .sobre-nos-section, .terceira_section, .section_doadores, .section_contato {
+    max-width: 1200px;
+    margin: auto;
+  }
+  .section_primeira_parte h1 {
+    font-size: 96px;
+  }
+}
